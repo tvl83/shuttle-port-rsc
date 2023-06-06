@@ -30,7 +30,7 @@ function ClaimAmount() {
 		<>
 			{wallet?.account?.address !== undefined ? (
 				<>
-					{vestingAddress} can claim {claimable}WHALE
+					{vestingAddress} can claim {claimable}WHALE (NFTSwitch gets {(claimable * 0.2).toFixed(6)}WHALE)
 				</>
 			) : (
 				<>
