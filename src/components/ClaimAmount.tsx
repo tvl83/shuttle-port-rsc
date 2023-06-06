@@ -15,6 +15,7 @@ function ClaimAmount() {
 
 	useEffect(() => {
 		if (wallet?.account?.address !== undefined) {
+
 			console.log(`connected with ${wallet?.account?.address}`)
 			axios.get('/api/getclaimable')
 			     .then((res) => {
@@ -23,7 +24,7 @@ function ClaimAmount() {
 				     setClaimable(res?.data?.claimable);
 			     })
 		}
-	}, [])
+	}, [wallet?.account?.address])
 
 	return (
 		<>
