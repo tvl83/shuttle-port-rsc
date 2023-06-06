@@ -15,46 +15,31 @@ function ClaimButton() {
 	const wallet                      = getWallets({chainId: currentNetworkId})[0];
 	const [isClaiming, setIsClaiming] = useState(false);
 	const [msgs, setMsgs]             = useState<MsgExecuteContract[]>([]);
-	const {data: swapFeeEstimate}     = useFeeEstimate({
-		                                                   messages: msgs
-	                                                   });
-
-	useEffect(() => {
-		if (wallet?.account?.address !== undefined) {
-			setMsgs([
-				        new MsgExecuteContract(
-					        {
-						        sender  : wallet.account.address,
-						        contract: 'migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw',
-						        msg     : {
-							        claim: {}
-						        },
-						        funds   : []
-					        })
-			        ])
-		}
-	}, [])
-
-	useEffect(() => {
-		console.log(`swapFeeEstimate`, swapFeeEstimate)
-	}, [swapFeeEstimate])
 
 	const handleClickClaim = async () => {
 		setIsClaiming(true);
-		broadcast({
-			          feeAmount: '50000uwhale',
-			          gasLimit : 'auto',
-			          messages : msgs,
-			          mobile   : isMobile(),
-			          wallet
-		          })
+		let tx = {
+			wallet,
+			messages : [
+				new MsgExecuteContract(
+					{
+						sender  : wallet.account.address,
+						contract: 'migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw',
+						msg     : {claim: {}},
+						funds   : []
+					})
+			],
+			mobile   : isMobile()
+		}
+		console.log(tx)
+		broadcast(tx)
 	}
 
 	return (
 		<>
 			<button
 				onClick={handleClickClaim}
-				disabled={isClaiming || (wallet?.account?.address !== 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
+				disabled={isClaiming || (wallet?.account?.address === 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
 			>
 				{isClaiming ? "Processing..." : "Claim"}
 			</button>
