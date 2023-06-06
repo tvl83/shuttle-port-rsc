@@ -39,7 +39,7 @@ function ClaimButton() {
 		<>
 			<button
 				onClick={handleClickClaim}
-				disabled={isClaiming || (wallet?.account?.address === 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
+				disabled={isClaiming || (wallet?.account?.address !== 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
 			>
 				{isClaiming ? "Processing..." : "Claim"}
 			</button>
