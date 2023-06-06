@@ -15,6 +15,8 @@ export default function useFeeEstimate({ messages }: Props) {
   const { simulate } = useShuttle();
   const wallet = useWallet();
 
+  console.log(`useFeeEstimate: messages: ${JSON.stringify(messages)}`)
+
   return useQuery(
     ["fee-estimate", JSON.stringify(messages), wallet?.id],
     async () => {

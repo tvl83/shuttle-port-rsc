@@ -1,14 +1,11 @@
-import { Swap } from "@/components/Swap";
+import ClaimAmount from '@/components/ClaimAmount';
+import ClaimButton from '@/components/ClaimButton';
 
 export default async function Home() {
-  // const response = await fetch(
-  //   "https://evilinsult.com/generate_insult.php?lang=en&type=json"
-  // );
-  // const json = (await response.json()) as InsultResponse;
-
   return (
     <main>
-      <Swap />
+      <ClaimAmount />
+      <ClaimButton />
     </main>
   );
 }

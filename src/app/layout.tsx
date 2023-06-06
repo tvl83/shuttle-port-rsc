@@ -8,11 +8,11 @@ import {
   MobileCosmostationProvider,
   MobileKeplrProvider,
   MobileLeapCosmosProvider,
-  MobileMetamaskProvider,
+  MobileMetamaskProvider, MobileTerraStationProvider,
   ShuttleProvider,
   TerraStationProvider,
   XDEFICosmosProvider,
-  XDefiProvider,
+  XDefiProvider
 } from "@delphi-labs/shuttle";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -21,8 +21,7 @@ import {
   MARS_MAINNET,
   TERRA_MAINNET,
   TERRA_TESTNET,
-  INJECTIVE_MAINNET,
-  INJECTIVE_TESTNET,
+  MIGALOO_MAINNET
 } from "@/config/networks";
 import Header from "@/components/Header";
 
@@ -42,7 +41,7 @@ const providers = [
     networks: [OSMOSIS_MAINNET, TERRA_MAINNET],
   }),
   new TerraStationProvider({
-    networks: [OSMOSIS_MAINNET, MARS_MAINNET, TERRA_MAINNET, TERRA_TESTNET],
+    networks: [OSMOSIS_MAINNET, MARS_MAINNET, TERRA_MAINNET, TERRA_TESTNET,MIGALOO_MAINNET],
   }),
   new KeplrProvider({
     networks: [
@@ -50,24 +49,19 @@ const providers = [
       MARS_MAINNET,
       TERRA_MAINNET,
       TERRA_TESTNET,
-      INJECTIVE_MAINNET,
-      INJECTIVE_TESTNET,
+      MIGALOO_MAINNET
     ],
-  }),
-  new MetamaskProvider({
-    networks: [INJECTIVE_MAINNET, INJECTIVE_TESTNET],
-  }),
+  })
 ];
 
 const mobileProviders = [
   new MobileKeplrProvider({
     networks: [
+      MIGALOO_MAINNET,
       OSMOSIS_MAINNET,
       MARS_MAINNET,
       TERRA_MAINNET,
-      TERRA_TESTNET,
-      INJECTIVE_MAINNET,
-      INJECTIVE_TESTNET,
+      TERRA_TESTNET
     ],
   }),
   new MobileLeapCosmosProvider({
@@ -75,9 +69,7 @@ const mobileProviders = [
       OSMOSIS_MAINNET,
       MARS_MAINNET,
       TERRA_MAINNET,
-      TERRA_TESTNET,
-      INJECTIVE_MAINNET,
-      INJECTIVE_TESTNET,
+      TERRA_TESTNET
     ],
   }),
   new MobileCosmostationProvider({
@@ -85,14 +77,12 @@ const mobileProviders = [
       OSMOSIS_MAINNET,
       MARS_MAINNET,
       TERRA_MAINNET,
-      TERRA_TESTNET,
-      INJECTIVE_MAINNET,
-      INJECTIVE_TESTNET,
+      TERRA_TESTNET
     ],
   }),
-  new MobileMetamaskProvider({
-    networks: [INJECTIVE_MAINNET, INJECTIVE_TESTNET],
-  }),
+  new MobileTerraStationProvider({
+    networks: [TERRA_MAINNET, TERRA_TESTNET,MIGALOO_MAINNET],
+                                 })
 ];
 
 export default function RootLayout({
