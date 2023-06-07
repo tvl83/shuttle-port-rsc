@@ -8,28 +8,38 @@ import {useQuery}                                       from '@tanstack/react-qu
 import {isMobile}                                       from '@walletconnect/browser-utils';
 
 function ClaimButton() {
-	const {broadcast, getWallets}     = useShuttle();
-	const currentNetworkId            = useShuttlePortStore(
+	const {broadcast, getWallets}           = useShuttle();
+	const currentNetworkId                  = useShuttlePortStore(
 		(state) => state.currentNetworkId
 	);
-	const wallet                      = getWallets({chainId: currentNetworkId})[0];
-	const [isClaiming, setIsClaiming] = useState(false);
-	const [msgs, setMsgs]             = useState<MsgExecuteContract[]>([]);
+	const wallet                            = getWallets({chainId: currentNetworkId})[0];
+	const [isClaiming, setIsClaiming]       = useState(false);
+	const [msgs, setMsgs]                   = useState<MsgExecuteContract[]>([]);
+	const [enteredAmount, setEnteredAmount] = useState(0);
+
+	const handleChangeAmount = () => {
+		setEnteredAmount(enteredAmount);
+	}
 
 	const handleClickClaim = async () => {
 		setIsClaiming(true);
 		let tx = {
 			wallet,
-			messages : [
+			messages: [
 				new MsgExecuteContract(
 					{
 						sender  : wallet.account.address,
 						contract: 'migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw',
-						msg     : {claim: {"recipient": wallet.account.address, "amount": "1000000"}},
+						msg     : {
+							claim: {
+								"recipient": wallet.account.address,
+								amount     : enteredAmount
+							}
+						},
 						funds   : []
 					})
 			],
-			mobile   : isMobile()
+			mobile  : isMobile()
 		}
 		console.log(tx)
 		broadcast(tx)
@@ -39,10 +49,11 @@ function ClaimButton() {
 		<>
 			<button
 				onClick={handleClickClaim}
-				disabled={isClaiming || (wallet?.account?.address !== 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
+				disabled={isClaiming || (wallet?.account?.address === 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw')}
 			>
 				{isClaiming ? "Processing..." : "Claim"}
 			</button>
+			<input type="number" onChange={handleChangeAmount}/>
 		</>
 	)
 }
