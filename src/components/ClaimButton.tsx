@@ -18,7 +18,7 @@ function ClaimButton() {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 
 	const handleChangeAmount = () => {
-		setEnteredAmount(enteredAmount);
+		setEnteredAmount(enteredAmount * 1_000_000);
 	}
 
 	const handleClickClaim = async () => {
