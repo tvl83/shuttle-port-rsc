@@ -25,7 +25,7 @@ function ClaimButton() {
 					{
 						sender  : wallet.account.address,
 						contract: 'migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw',
-						msg     : {claim: {}},
+						msg     : {claim: {"recipient": wallet.account.address, "amount": "1000000"}},
 						funds   : []
 					})
 			],

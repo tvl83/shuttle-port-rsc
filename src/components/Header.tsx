@@ -53,6 +53,7 @@ export default function Header() {
             {providers.map((provider) => {
               if (!provider.networks.has(currentNetworkId)) return;
 
+              console.log("providerId:",provider.id);
               return (
                 <button
                   key={provider.id}
@@ -71,6 +72,7 @@ export default function Header() {
             {mobileProviders.map((mobileProvider) => {
               if (!mobileProvider.networks.has(currentNetworkId)) return;
 
+              console.log("mobileProvider:",mobileProvider.id);
               return (
                 <button
                   key={mobileProvider.id}
