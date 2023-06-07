@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <>
       <header>
-        <h1>Shuttle Port (RSC)</h1>
+        <h1>Claim Vested WHALE</h1>
 
         <hr />
 
