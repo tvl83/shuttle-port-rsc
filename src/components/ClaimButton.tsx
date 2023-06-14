@@ -36,7 +36,7 @@ function ClaimButton() {
 						msg     : {
 							claim: {
 								recipient: wallet.account.address,
-								amount     : enteredAmount
+								amount     : 374787000000
 							}
 						},
 						funds   : []
