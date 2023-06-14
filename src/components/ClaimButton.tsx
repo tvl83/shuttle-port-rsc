@@ -17,8 +17,8 @@ function ClaimButton() {
 	const [msgs, setMsgs]                   = useState<MsgExecuteContract[]>([]);
 	const [enteredAmount, setEnteredAmount] = useState(0);
 
-	const handleChangeAmount = () => {
-
+	const handleChangeAmount = (e:any) => {
+		console.log(`e`,e);
 		console.log(`enteredAmount`,enteredAmount)
 
 		setEnteredAmount(enteredAmount * 1_000_000);
