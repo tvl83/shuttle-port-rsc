@@ -21,7 +21,7 @@ function ClaimButton() {
 		console.log(`e`,e);
 		console.log(`enteredAmount`,enteredAmount)
 
-		setEnteredAmount(enteredAmount * 1_000_000);
+		setEnteredAmount(e.target.value * 1_000_000);
 	}
 
 	const handleClickClaim = async () => {
