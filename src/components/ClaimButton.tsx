@@ -18,9 +18,6 @@ function ClaimButton() {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 
 	const handleChangeAmount = (e:any) => {
-		console.log(`e`,e);
-		console.log(`enteredAmount`,enteredAmount)
-
 		setEnteredAmount(e.target.value * 1_000_000);
 	}
 
@@ -35,8 +32,8 @@ function ClaimButton() {
 						contract: 'migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw',
 						msg     : {
 							claim: {
-								recipient: wallet.account.address,
-								amount     : 374787000000
+								"recipient": wallet.account.address,
+								"amount": `${enteredAmount}`
 							}
 						},
 						funds   : []
