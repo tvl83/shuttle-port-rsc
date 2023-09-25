@@ -69,8 +69,8 @@ export const OSMOSIS_MAINNET: Network = {
 export const MIGALOO_MAINNET: Network = {
 	name           : "Migaloo Mainnet",
 	"chainId"      : "migaloo-1",
-	"rpc"          : "https://migaloo-rpc.dalnim.finance/",
-	"rest"         : "https://migaloo-api.dalnim.finance/",
+	"rpc"          : "https://rpc-whitewhale-ia.cosmosia.notional.ventures",
+	"rest"         : "https://api-whitewhale-ia.cosmosia.notional.ventures",
 	"bip44"        : {
 		"coinType": 118
 	},

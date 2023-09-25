@@ -1,7 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server';
 
 const VESTING_CONTRACT: string      = `migaloo15l9a6jpc86dkh366vpqn588pjuhvh0k87kwgmsqp2hsp349w0hvqguj5aw`;
-const MIGALOO_REST_ROOT_URL: string = 'https://migaloo-api.dalnim.finance'
+const MIGALOO_REST_ROOT_URL: string = 'https://api-whitewhale-ia.cosmosia.notional.ventures'
 const BBL_VESTING_ACCOUNT: string   = 'migaloo192ycaszmefnf5nve0rx9ude8pu7lgwrh037djw'
 
 export async function GET() {
